@@ -19,6 +19,6 @@ namespace Басикукле
         public abstract void GetInformation();
 
         public abstract void Upgrade();
-
+        public abstract int GetPrice();
     }
 }
