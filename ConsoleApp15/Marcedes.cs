@@ -19,47 +19,84 @@ namespace Басикукле
 
         public override void Ride()
         {
-            Console.WriteLine();
-            Console.WriteLine($"Завести машину");
-            Console.WriteLine();
-            string a = Console.ReadLine();
-            int b = int.Parse(a);
-            if (b == 1)
+            while (true)
             {
+                bool chec1 = false;
+                bool chec2 = false;
+                bool chec3 = false;
+                bool chec4 = false;
                 Console.WriteLine();
-                Console.WriteLine($"Машина заведена. Чтобы начать двежение введите 1");
+                Console.WriteLine($"1. Завести машину");
+                Console.WriteLine($"2. Начать двежение");
+                Console.WriteLine($"3. Сделать остановку и заглушить двигатель");
+                Console.WriteLine($"4. Завершить поездку");
                 Console.WriteLine();
-                string r = Console.ReadLine();
-                int rid = int.Parse(r);
-                if (rid == 1)
+                string a = Console.ReadLine();
+                bool c = int.TryParse(a, out var b);
+                if (b == 1)
                 {
                     Console.WriteLine();
-                    Console.WriteLine($"Автомобиль едет");
-                    Console.WriteLine($"\t");
-                    Console.WriteLine($"Чтобы сделать остановку введите и заглушить двигатель 1");
+                    Console.WriteLine($"Машина заведена");
                     Console.WriteLine();
-                    string s = Console.ReadLine();
-                    int stop = int.Parse(r);
-                    if (rid == 1)
+                    chec1 = true;
+                    chec4 = true;
+                }
+                else if (b == 2)
+                {
+                    if (chec1 == true)
                     {
-                        Console.WriteLine();
-                        Console.WriteLine($"машина остановлена");
-                        Console.WriteLine("\t");
-                        Console.WriteLine($"Завершить поездку 1. Продолжить поездку введите 2");
-                        Console.WriteLine();
-                        string ri = Console.ReadLine();
-                        int ride = int.Parse(r);
-                        if (ride == 1)
-                        {
-                            Console.WriteLine();
-                            Console.WriteLine($"Досвидания");
-                            Console.WriteLine();
-                        }
-                        else if (ride == 2)
-                        {
-                            Ride();
-                        }
+
+                        Console.WriteLine($"Машина едет");
+                        Console.WriteLine($"\t");
+                        chec2 = true;
+                        chec1 = false;
                     }
+                    else
+                    {
+                        Console.WriteLine($"Сначала заведите машину");
+                        Console.WriteLine();
+                    }
+                }
+
+                else if (b == 3)
+                {
+                    if (chec2 == true)
+                    {
+
+                        Console.WriteLine($"Машина остановлена и заглушена");
+                        Console.WriteLine();
+                        chec3 = true;
+                        chec2 = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Ваша машина не начала движение");
+                        Console.WriteLine();
+                    }
+                }
+                else if (4 == b)
+                {
+                    if (chec3 == true)
+                    {
+                        Console.WriteLine($"Вы завершили поездку");
+                        Console.WriteLine();
+                        break;
+                    }
+                    else if (chec4 == false)
+                    {
+                        Console.WriteLine($"Вы завершили поездку");
+                        Console.WriteLine();
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Сначала остановите машину");
+                        Console.WriteLine();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Выберете команду из списка");
                 }
             }
         }

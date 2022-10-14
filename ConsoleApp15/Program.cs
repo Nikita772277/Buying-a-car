@@ -1,17 +1,20 @@
 ﻿using Басикукле;
 
-User user = new User(1000000);
+User user = new User();
 void GetMenu()
 {
     Console.WriteLine("1. Купить автомобиль");
     Console.WriteLine("2. Апгрейд автомобиля");
     Console.WriteLine("3. Информация об автомобиле");
-    Console.WriteLine("4. денег");
+    Console.WriteLine("4. денег осталось");
     Console.WriteLine("5. ехать");
     Console.WriteLine("\t");
 }
 void FuncMenu()
 {
+    Console.WriteLine($"Прежде чем начать введети сколько у вас денег");
+    Console.WriteLine();
+    user.SetMoney();
     while (true)
     {
 

@@ -9,16 +9,16 @@ namespace Басикукле
 {
     internal class User
     {
-        private int _money;
+        private decimal _money;
         private string _car;
         private bool _lada;
         private bool _BMW;
         private bool _mercedes;
         private bool _porche;
+        private bool _chec = false;
 
-        public User(int money)
+        public User()
         {
-            _money = money;
             _lada = false;
         }
         Car lada = new Lada();
@@ -220,9 +220,17 @@ namespace Басикукле
             }
 
         }
+        public void SetMoney()
+        {
+            string mone = Console.ReadLine();
+            bool money = decimal.TryParse(mone, out var a);
+            _money = a;
+        }
         public void GetMoney()
         {
-            Console.WriteLine($"{_money}");
+            Console.WriteLine($"У вас осталось: {_money}");
+
+
         }
         public void Ride()
         {
